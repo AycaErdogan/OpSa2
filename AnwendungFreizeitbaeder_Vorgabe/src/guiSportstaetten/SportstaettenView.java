@@ -13,7 +13,8 @@ import ownUtil.*;
 public class SportstaettenView {
 	
 	// Hier ergaenzen
-	private FreizeitbaederModel freizeitbaederModel;			
+	private FreizeitbaederModel freizeitbaederModel;	
+	
 	//---Anfang Attribute der grafischen Oberflaeche---
     	private Pane pane     				       
  		= new  Pane();
@@ -28,10 +29,9 @@ public class SportstaettenView {
     		primaryStage.setScene(scene);
     		primaryStage.setTitle("Anzeige von Sportstätten");
     		primaryStage.show();
-    		// Hier ergaenzen
+    		this.freizeitbaederModel = freizeitbaederModel;
     		this.initKomponenten();
     		this.initListener();    
-    		this.freizeitbaederModel = freizeitbaederModel;
     	}
     	
     	private void initKomponenten(){

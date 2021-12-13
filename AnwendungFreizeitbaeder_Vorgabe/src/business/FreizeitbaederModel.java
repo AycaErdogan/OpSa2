@@ -1,6 +1,6 @@
 package business;
 
-import Pattern.Observable;
+import Pattern.ConcreteObservable;
 import Pattern.Observer;
 import java.io.IOException;
 import java.util.Vector;
@@ -9,20 +9,19 @@ import fabrik.ConcreteProduct;
 import fabrik.ConcreteTxtProduct;
 import fabrik.Creator;
 
-public class FreizeitbaederModel implements Observable {
+public class FreizeitbaederModel extends ConcreteObservable {
 	
 	private Freizeitbad freizeitbad;
-	private static FreizeitbaederModel instance = null;
+	private static FreizeitbaederModel getInstance = null;
 	Vector<Observer> observers = new Vector<Observer>();
-
 	private FreizeitbaederModel() {
 		
 	}
 	
 	public static FreizeitbaederModel getInstance(){
-		if (instance == null)
-			instance = new FreizeitbaederModel();
-		return instance;
+		if (getInstance == null)
+			getInstance = new FreizeitbaederModel();
+		return getInstance;
 	}
 
 	public void schreibeFreizeitbaederInTxtDatei() 
