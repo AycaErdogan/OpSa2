@@ -16,7 +16,6 @@ public class SportstaettenControl implements Observer{
 		this.sportstaettenView = new SportstaettenView(primaryStage, this, this.freizeitbaederModel);
 		this.freizeitbaederModel.addObserver(this);
 	}
-
 	void schreibeFreizeitbaederInDatei(String typ) {
 		try {
 			if ("csv".contentEquals(typ)) {

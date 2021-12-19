@@ -1,8 +1,7 @@
 package gui.guiSportstaetten;
 
+import business.Freizeitbad;
 import business.FreizeitbaederModel;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,7 +25,8 @@ public class SportstaettenView {
 	private Button btnAnzeigeFreizeitbaeder = new Button("Anzeige");
 	// -------Ende Attribute der grafischen Oberflaeche-------
 
-	public SportstaettenView( Stage primaryStage, SportstaettenControl sportstaettenControl, FreizeitbaederModel freizeitbaederModel) {
+	public SportstaettenView(Stage primaryStage, SportstaettenControl sportstaettenControl,
+			FreizeitbaederModel freizeitbaederModel) {
 		Scene scene = new Scene(this.pane, 560, 340);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Anzeige von Sportstätten");
@@ -61,17 +61,25 @@ public class SportstaettenView {
 	}
 
 	private void initListener() {
-		btnAnzeigeFreizeitbaeder.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				zeigeFreizeitbaederAn();
-			}
-		});
+		/*
+		 * btnAnzeigeFreizeitbaeder.setOnAction(new EventHandler<ActionEvent>() {
+		 * 
+		 * @Override public void handle(ActionEvent e) { zeigeFreizeitbaederAn(); } });
+		 */
+		btnAnzeigeFreizeitbaeder.setOnAction(e -> zeigeFreizeitbaederAn());
+		btnAnzeigeFreizeitbaeder.setOnAction(e -> zeigeFreizeitbaederAn());
+		btnAnzeigeFreizeitbaeder.setOnAction(e -> zeigeInformationsfensterAn("Noch nicht implementiert"));
 	}
 
 	void zeigeFreizeitbaederAn() {
-		if (freizeitbaederModel.getFreizeitbad() != null) {
-			txtAnzeigeFreizeitbaeder.setText(freizeitbaederModel.getFreizeitbad().gibFreizeitbadZurueck(' '));
+		if (freizeitbaederModel.getFreizeitbad().size() > 0) {
+			StringBuffer text = new StringBuffer(); 
+			// Ergaenzen: for each – Schleife ueber ArrayList
+
+			for (Freizeitbad fzb : this.freizeitbaederModel.getFreizeitbad()) {
+				text.append(fzb.gibFreizeitbadZurueck(' ') + "\n");
+			}
+			this.txtAnzeigeFreizeitbaeder.setText(text.toString());
 		} else {
 			zeigeInformationsfensterAn("Bisher wurde kein Freizeitbad aufgenommen!");
 		}
@@ -84,5 +92,4 @@ public class SportstaettenView {
 	void zeigeFehlermeldungsfensterAn(String fehlertyp, String meldung) {
 		new MeldungsfensterAnzeiger(AlertType.ERROR, fehlertyp + "Fehler", meldung).zeigeMeldungsfensterAn();
 	}
-
 }

@@ -1,11 +1,9 @@
 /.classpath
 /.project
-/Pattern/
 /business/
 /fabrik/
-/guiFreizeitbaeder/
-/guiSportstaetten/
+/gui/
 /main/
 /ownUtil/
-/gui/
 /pattern/
+/test/

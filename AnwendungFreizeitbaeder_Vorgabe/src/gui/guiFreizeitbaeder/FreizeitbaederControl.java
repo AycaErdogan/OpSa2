@@ -7,7 +7,6 @@ import java.io.*;
 
 public class FreizeitbaederControl implements Observer {
 
-
 	private FreizeitbaederModel freizeitbaederModel;
 	private FreizeitbaederView freizeitbaederView;
 
@@ -16,7 +15,6 @@ public class FreizeitbaederControl implements Observer {
 		this.freizeitbaederView = new FreizeitbaederView(primaryStage, this, this.freizeitbaederModel);
 		this.freizeitbaederModel.addObserver(this);
 	}
-
 	void schreibeFreizeitbaederInDatei(String typ) {
 		try {
 			if ("csv".contentEquals(typ)) {

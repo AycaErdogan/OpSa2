@@ -25,3 +25,6 @@ public class PlausiException extends Exception {
 	  	    + "Eingabefehler im Feld " + this.feldname + ".";
 	}
 }
+
+
+

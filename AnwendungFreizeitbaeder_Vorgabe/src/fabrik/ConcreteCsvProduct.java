@@ -17,6 +17,4 @@ public class ConcreteCsvProduct extends Product {
     public void schliesseDatei() throws IOException{
             bufferedWriter.close();
     }
-
-	
 }

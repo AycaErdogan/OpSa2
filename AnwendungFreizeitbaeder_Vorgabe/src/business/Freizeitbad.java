@@ -4,7 +4,6 @@ import ownUtil.*;
 
 public class Freizeitbad {
 
-
 	// Name des Freizeitbads
     private String name;
     // Oeffnungszeiten
@@ -35,7 +34,6 @@ public class Freizeitbad {
     		throw new PlausiException(PlausiException.FORMAL, feldname);
         } 
     }
-    
     private String pruefeFormal(
     	String name, String geoeffnetVon, String geoeffnetBis,
         String beckenlaenge, String temperatur) {

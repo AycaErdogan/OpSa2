@@ -17,7 +17,6 @@ public class MeldungsfensterAnzeiger {
 			this.meldung = "Die Meldung ist nicht vorhanden.";
 		}
 	}
-
     public void zeigeMeldungsfensterAn(){
     	Alert alert = new Alert(alertTyp);
 	    alert.setTitle(this.titel);

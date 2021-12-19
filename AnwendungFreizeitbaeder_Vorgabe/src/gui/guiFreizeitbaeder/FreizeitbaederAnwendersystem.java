@@ -115,8 +115,7 @@ public class FreizeitbaederAnwendersystem {
   	    this.mnDatei.getItems().add(mnItmCsvExport);
   	    this.mnDatei.getItems().add(mnItmTxtExport);
  	    pane.getChildren().add(mnbrMenuLeiste);
-   }
-   
+   } 
    private void initListener() {
 	    btnEingabe.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -131,7 +130,6 @@ public class FreizeitbaederAnwendersystem {
 	        } 
    	    });  
     }
-    
     private void nehmeFreizeitbadAuf(){
     	try{
     		this.freizeitbad = new Freizeitbad(

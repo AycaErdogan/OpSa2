@@ -12,7 +12,6 @@ public class ConcreteTxtProduct extends Product {
     } catch (IOException e) {
         e.printStackTrace();
     }
-		
 	}
 
 	public void fuegeInDateiHinzu(Object object) throws IOException{
