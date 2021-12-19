@@ -3,7 +3,8 @@ package business;
 import ownUtil.*;
 
 public class Freizeitbad {
-	
+
+
 	// Name des Freizeitbads
     private String name;
     // Oeffnungszeiten
@@ -136,5 +137,4 @@ public class Freizeitbad {
 	public void setTemperatur(int temperatur) {
 		this.temperatur = temperatur;
 	}	
-  	
 }

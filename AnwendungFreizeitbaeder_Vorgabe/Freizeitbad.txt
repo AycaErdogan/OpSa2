@@ -4,3 +4,9 @@ Name des Freizeitbaedes:			1
 Beckenlänge des Freizeitbads:		4
 Wassertemperatur des Freizeitbads:	5
 
+Daten des Freizeitbades
+Name des Freitzeitbads:				1
+Oeffnungszeit des Freizeitbads:		2.0 - 3.0
+Beckenlaenge des Freizeitbads:		4
+Wassertemperatur des Freizeitbads:	5
+

@@ -1,59 +1,75 @@
 package business;
 
-import Pattern.ConcreteObservable;
-import java.io.IOException;
-import fabrik.ConcreteCreator;
-import fabrik.ConcreteProduct;
-import fabrik.ConcreteTxtProduct;
-import fabrik.Creator;
+//import gui.*;
+import java.io.*;
+import java.util.*;
+import pattern.*;
+import pattern.Observer;
+import fabrik.*;
 
-public class FreizeitbaederModel extends ConcreteObservable {
+public class FreizeitbaederModel {
 
-		private Freizeitbad freizeitbad;
+	private Freizeitbad freizeitbad;
 
-		/*
-		 * public void schreibeFreizeitbaederInCsvDatei(FreizeitbaederView fbView)
-		 * throws IOException { BufferedWriter aus = new BufferedWriter(new
-		 * FileWriter("Freizeitbaeder.csv", true));
-		 * aus.write(fbView.getFreizeitbad().gibFreizeitbadZurueck(';')); aus.close(); }
-		 */
+	/*
+	 * public void schreibeFreizeitbaederInCsvDatei(FreizeitbaederView fbView)
+	 * throws IOException { BufferedWriter aus = new BufferedWriter(new
+	 * FileWriter("Freizeitbaeder.csv", true));
+	 * aus.write(fbView.getFreizeitbad().gibFreizeitbadZurueck(';')); aus.close(); }
+	 */
+	
+
+	//Singleton
+	Vector<Observer>Observers =new Vector<Observer>();
+	
+	private static FreizeitbaederModel freizeitbaederModel= null;
+	private FreizeitbaederModel() {
 		
-
-		//Singleton
-		private static FreizeitbaederModel freizeitbaederModel= null;
-		private FreizeitbaederModel() {
-			
-		}
-		public static FreizeitbaederModel getInstance() {
-			if(freizeitbaederModel == null)
-				freizeitbaederModel= new FreizeitbaederModel();
-			
-			return freizeitbaederModel;
-		}
+	}
+	public static FreizeitbaederModel getInstance() {
+		if(freizeitbaederModel == null)
+			freizeitbaederModel= new FreizeitbaederModel();
 		
+		return freizeitbaederModel;
+	}
+	
 
-		public void schreibeFreizeitbaederInTxtDatei() 
-			    throws IOException {
-			        Creator txt = new ConcreteCreator();
-			        ConcreteTxtProduct writer = (ConcreteTxtProduct)txt.factoryMethod("txt");
-			        writer.fuegeInDateiHinzu(this.freizeitbad);
-			        writer.schliesseDatei();
-			    }
+	public void schreibeFreizeitbaederInTxtDatei() throws IOException {
 
-			    public void schreibeFreizeitbaederInCsvDatei() 
-			    throws IOException {
-			        Creator csv = new ConcreteCreator();
-			        ConcreteProduct writer = (ConcreteProduct)csv.factoryMethod("csv");
-			        writer.fuegeInDateiHinzu(this.freizeitbad);
-			        writer.schliesseDatei();
-			    }
-		public Freizeitbad getFreizeitbad() {
-			return this.freizeitbad;
-		}
+		Creator txt = new ConcreteTxtCreator();
+		Product writer = txt.factoryMethod(null);
+		writer.fuegeInDateiHinzu(this.freizeitbad);
+		writer.schliesseDatei();
 
-		public void setFreizeitbad(Freizeitbad freizeitbad) {
-			this.freizeitbad = freizeitbad;
-			this.notifyObservers();
-		}
+	}
 
+	public void schreibeFreizeitbaederInCsvDatei() throws IOException {
+		Creator c = new ConcreteCsvCreator();
+		Product writer = c.factoryMethod(null);
+		writer.fuegeInDateiHinzu(this.freizeitbad);
+		writer.schliesseDatei();
+
+	}
+
+	public Freizeitbad getFreizeitbad() {
+		return this.freizeitbad;
+	}
+
+	public void setFreizeitbad(Freizeitbad freizeitbad) {
+		this.freizeitbad = freizeitbad;
+		this.notifyObservers();
+	}
+    public void addObserver(Observer obs) {
+		Observers.add(obs);
+    }
+
+    public void removeObserver(Observer obs) {
+        Observers.removeElement(obs);
+    }
+
+    public void notifyObservers() {
+        for (Observer obs : Observers) {
+            obs.update();
+        }
+    }
 }
