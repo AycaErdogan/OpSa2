@@ -48,19 +48,19 @@ public class Freizeitbad {
 	            Float.parseFloat(geoeffnetVon);
 	        }
 	        catch(NumberFormatException exc) {
-	            return "Geöffnet von";
+	            return "GeÃ¶ffnet von";
 	        }
 	        try {
 	            Float.parseFloat(geoeffnetBis);
 	        }
 	        catch(NumberFormatException exc) {
-	        	return "Geöffnet bis";
+	        	return "GeÃ¶ffnet bis";
 	        }
 	        try {
 	            Integer.parseInt(beckenlaenge);
 	        }
 	        catch(NumberFormatException exc) {
-	        	return "Beckenlänge";
+	        	return "BeckenlÃ¤nge";
 	        }
 	        try {
 	            Integer.parseInt(temperatur);
@@ -75,14 +75,14 @@ public class Freizeitbad {
     private String pruefeInhaltlich() {
         String erg = null;
         if(this.getGeoeffnetVon() < 0 || this.getGeoeffnetVon() >= 24){
-        	return "Geöffnet von";
+        	return "GeÃ¶ffnet von";
         }
         if(this.getGeoeffnetBis() < 0 || this.getGeoeffnetBis() >= 24
         	|| this.getGeoeffnetBis() <= this.getGeoeffnetVon()){
-        	return "Geöffnet bis";
+        	return "GeÃ¶ffnet bis";
         }
         if(this.getBeckenlaenge() <= 0){
-        	return "Beckenlänge";
+        	return "BeckenlÃ¤nge";
         }
         if(this.getTemperatur() <= 0 || this.getTemperatur() >= 100){
         	return "Temperatur";
@@ -133,7 +133,6 @@ public class Freizeitbad {
 	public int getTemperatur() {
 		return temperatur;
 	}
-
 	public void setTemperatur(int temperatur) {
 		this.temperatur = temperatur;
 	}	
