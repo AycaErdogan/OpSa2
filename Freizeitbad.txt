@@ -1,0 +1,25 @@
+
+Daten des Freizeitbades
+Name des Freitzeitbads:				beispiel
+Oeffnungszeit des Freizeitbads:		1.0 - 2.0
+Beckenlaenge des Freizeitbads:		3
+Wassertemperatur des Freizeitbads:	4
+
+Daten des Freizeitbades
+Name des Freitzeitbads:				test
+Oeffnungszeit des Freizeitbads:		2.0 - 4.0
+Beckenlaenge des Freizeitbads:		8
+Wassertemperatur des Freizeitbads:	5
+
+Daten des Freizeitbades
+Name des Freitzeitbads:				bsp
+Oeffnungszeit des Freizeitbads:		5.0 - 8.0
+Beckenlaenge des Freizeitbads:		10
+Wassertemperatur des Freizeitbads:	19
+
+Daten des Freizeitbades
+Name des Freitzeitbads:				1
+Oeffnungszeit des Freizeitbads:		2.0 - 3.0
+Beckenlaenge des Freizeitbads:		4
+Wassertemperatur des Freizeitbads:	5
+
